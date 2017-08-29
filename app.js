@@ -82,32 +82,63 @@ if语句
 /*4问：zepto 或者其他框架源码中如何使用原型链*/
 
 /*构造函数*/
-function Foo(age,name) {
-  this.age = age
+// function Foo(age,name) {
+//   this.age = age
+//   this.name = name
+//   this.class = 'class-1'
+//   //return this //默认有这一行
+// }
+
+// var f = new Foo('zhangsan',20)
+// var f1 = new Foo('lisi',22)
+
+// console.log(f)
+// console.log(f1)
+
+// Foo { age: 'zhangsan', name: 20, class: 'class-1' }
+// Foo { age: 'lisi', name: 22, class: 'class-1' }
+
+
+// var obj = {};obj.a = 100
+// var arr = [];arr.a = 100,arr.b = 100,arr.c = 100
+
+// function fn() {}
+// fn.a = 100
+// console.log(obj.__proto__)
+// console.log(arr.__proto__)
+// console.log(arr)
+// console.log(fn.__proto__)
+// console.log(fn.prototype)
+// console.log(obj.__proto__ === Object.prototype)
+// {}
+// []
+// [Function]
+// fn {}
+// true
+
+function Foo(name) {
   this.name = name
-  this.class = 'class-1'
-  //return this //默认有这一行
 }
 
-var f = new Foo('zhangsan',20)
-var f1 = new Foo('lisi',22)
+Foo.prototype.age = function () {
+  console.log(this.name)
+}
 
-console.log(f)
-console.log(f1)
+var f = new Foo('lisi')
 
+f.name = function () {
+  console.log(this.name)
+}
 
+f.name()
+f.age()
 
-
-
-
-
-
-
-
-
-
-
-
+var item 
+for (item in f ) {
+  if (f.hasOwnProperty(item)) {
+    console.log(item)
+  }
+}
 
 
 
