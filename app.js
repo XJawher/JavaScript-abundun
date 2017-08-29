@@ -24,6 +24,6 @@ console.log(typeof false)
 console.log(typeof [1,12])
 console.log(typeof {a:12})
 console.log(typeof null)
-console.log(typeof console.log())
+console.log(typeof console.log)
 
 
