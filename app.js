@@ -184,8 +184,80 @@ if语句
 // }
 
 /*this*/
+// var  a = {
+//   name:'A',
+//   fn:function () {
+//     console.log(this.name)
+//   }
+// }
+
+// a.fn()// this === a 
+// a.fn.call({name:'B'})//this === {name:'B'}
+// var fn1 = a.fn 
+// fn1() //this === window
 
 
+
+
+
+
+
+
+/*1>作为构造函数执行*/
+
+// function Foo(name,age) {
+//   this.name = name
+//   this.age = age
+//   console.log(this.name)
+// }
+
+// var f = new Foo('lisi',20)
+// console.log(f)
+
+// /*2>作为对象属性执行*/
+// var obj = {
+//   name:'A',
+//   printName : function () {
+//     console.log(this.name)    
+//   }
+// }
+// obj.printName()
+// /*3>作为普通函数执行*/
+// function fn3(argument) {
+
+//   console.log(argument)
+//   console.log(this)
+// }
+// // fn3()//this ===  window
+
+
+// /*4>call apply bind*/
+// fn3.call('1','zhangsan')
+
+// /*bind 必须是函数表达式而不是函数声明*/
+//  var fn4 = function (argument) {
+
+//   console.log(argument)
+//   console.log(this)
+// }.bind({a:100})
+
+// fn4('lilili')
+/*作用域链*/
+
+
+var a = 100
+function f1() {
+  var b = 200
+  function f2(){
+    var c = 300
+    console.log(a)
+    console.log(b)
+    console.log(c)
+  }
+  f2()
+}
+
+f1()
 
 
 
