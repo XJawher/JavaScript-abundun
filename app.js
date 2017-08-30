@@ -173,13 +173,19 @@ if语句
 
 /*作用域和作用域提升*/
 
-console.log(a)
-var a = 100
+// console.log(a)
+// var a = 100
 
-fn('lisi')
-function fn(argument) {
-  console.log(argument)
-}
+// fn('lisi')
+// function fn(argument) {
+//   age = 22
+//   console.log(argument,age)
+//   var age
+// }
+
+/*this*/
+
+
 
 
 
