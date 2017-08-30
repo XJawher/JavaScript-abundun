@@ -245,19 +245,109 @@ if语句
 /*作用域链*/
 
 
-var a = 100
-function f1() {
-  var b = 200
-  function f2(){
-    var c = 300
-    console.log(a)
-    console.log(b)
-    console.log(c)
+// var a = 100
+// function f1() {
+//   var b = 200
+//   function f2(){
+//     var c = 300
+//     console.log(a)
+//     console.log(b)
+//     console.log(c)
+//   }
+//   f2()
+// }
+
+// f1()
+
+/*闭包*/
+/*1>函数作为返回值*/
+// function F1() {
+//   var a = 100
+
+//   return function (){
+//     console.log(a)
+//   }/*1>函数作为返回值*/
+// }
+
+// var f1 = F1()
+// var a = 200
+// f1()
+
+// /*2>函数作为参数传递*/
+
+// function F1() {
+//   var a = 100
+
+//   return function (){
+//     console.log(a)
+//   }
+// }
+
+// var f1 = F1()
+
+// /*2>函数作为参数传递*/
+// function F2(fn) {
+//   var a = 200
+//   fn()
+// }
+// F2(f1)
+
+/*创建 10 个 a 标签，点击的时候弹出相应的序号*/
+/*错误的写法*/
+// var i , a 
+// for (var i = 0; i < 10; i++) {
+//   a = document.createElement('a')
+//   a.innerHTML = i + '<br>'
+//   a.addEventListener('click',function (e) {
+//     e.preventDefault()
+//     alert(i)
+//   })
+// }
+// document.body.appendChild(a)
+
+/*错误分析
+在上面的代码中，由于 i 是一个自由变量，在执行的时候
+会去他的父级作用域找，这时候发现 i 的值在父级
+作用域中已经是 10 了 所以我们点击的时候所拿到de
+值一直就是 10，他无法传递 123
+*/
+/*正确的做法，加一闭包*/
+// var i 
+// for (var i = 0; i < 10; i++) {
+//   (function (i) {
+//     a = document.createElement('a')
+//     a.innerHTML = i + '<br>'
+//     a.addEventListener('click',function (e) {
+//       e.preventDefault()
+//       alert(i)
+//     })
+//     document.body.appendChild(a)
+//   })(i)  
+// }
+
+function firstLoad() {
+  var _list = []
+  return function (id){
+    if (_list.indexOf(id) >= 0) {
+      return false
+    } else {
+      _list.push(id)
+      return true
+    }
   }
-  f2()
 }
 
-f1()
+var _firstLoad = firstLoad()
+_firstLoad(10)
+_firstLoad(20)
+_firstLoad(10)
+
+
+
+
+
+
+
 
 
 
