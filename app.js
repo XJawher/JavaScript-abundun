@@ -116,29 +116,77 @@ if语句
 // fn {}
 // true
 
-function Foo(name) {
-  this.name = name
+// function Foo(name) {
+//   this.name = name
+// }
+
+// Foo.prototype.age = function () {
+//   console.log(this.name)
+// }
+
+// var f = new Foo('lisi')
+
+// f.name = function () {
+//   console.log(this.name)
+// }
+
+// f.name()
+// f.age()
+
+// var item 
+// for (item in f ) {
+//   if (f.hasOwnProperty(item)) {
+//     console.log(item)
+//   }
+// }
+
+
+/*写一个原型链继承的例子*/
+
+// function Elem(id) {
+//   this.elem = document.getElementById(id);
+// }
+
+// Elem.prototype.html = function (val) {
+//   var elem = this.elem
+//   if (val) {
+//     elem.innerHTML = val
+//     return this
+//   }else{
+//     return elem.innerHTML
+//   } 
+// }
+
+// Elem.prototype.on = function (type,fn) {
+//   var elem = this.elem
+//   elem.addEventListener(type,fn)
+// }
+// var div1 = new Elem('J_SearchTab')
+
+
+// // console.log(div1.html())
+// div1.html('<p>nihai</p>')
+// div1.on('click',function () {
+//   alert('click')
+// })
+
+
+/*作用域和作用域提升*/
+
+console.log(a)
+var a = 100
+
+fn('lisi')
+function fn(argument) {
+  console.log(argument)
 }
 
-Foo.prototype.age = function () {
-  console.log(this.name)
-}
 
-var f = new Foo('lisi')
 
-f.name = function () {
-  console.log(this.name)
-}
 
-f.name()
-f.age()
 
-var item 
-for (item in f ) {
-  if (f.hasOwnProperty(item)) {
-    console.log(item)
-  }
-}
+
+
 
 
 
