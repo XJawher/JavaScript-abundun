@@ -166,12 +166,44 @@ setTimeOut setInerval 定时任务，设定多少秒以后做事件，网络请�
 其他知识点：
 日期，math 数组API 对象 API
 
+## 从基础知识到 JS-web-api
+
+## DOM 文档对象模型
+问：DOM 是那种基本的数据结构
+
+
+问：DOM 操作的常用结构
+
+问：DOM 节点的 attribute 和 property 有啥区别
+property 是 JS 对象的属性 比如 var obj = {x:100,y:200} obj.x = 100, 这儿的 obj.x 中的 X 就是一个 property 
+attribute 修改的是 HTML 文档的标签中的属性
+
+
+
+DOM 的本质是什么？？
+节点树，结构化，能让 JS 可识别可操作性
+DOM 节点操作
+获取 DOM 节点 以 getElementById 为类型的 api 
 
 
 
 
 
+DOM 结构操作
+新增节点
+有两种方法，一个是 
+var div1 = document.getElementById('div1')
+// add new node 
+var p1 = document.createElement('p')
+p.innerHTML = 'this is p '
+//移动新的节点
+var p2 = document.getElementById('p2')
+div1.appendChild(p2)
 
+
+
+获取父子元素
+删除节点
 
 
 
