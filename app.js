@@ -457,18 +457,18 @@ forEach(obj,function (key,value){
 */
 
 /*编写一个通用的事件监听函数*/
-var btn = document.getElementById('btn1')
-btn.a.addEventListener('click',function (event) {
-  console.log('click')
-})
-function bindEvent(elem,type,fn) {
-  elem.addEventListener(type,fn)
-}
-var a = document.getElementById('link1')
-bindEvent(a,'click',function () {
-  e.preventDefault()//这个存在就是阻止默认的行为，
-  console.log('bindEvent click')
-})
+// var btn = document.getElementById('btn1')
+// btn.a.addEventListener('click',function (event) {
+//   console.log('click')
+// })
+// function bindEvent(elem,type,fn) {
+//   elem.addEventListener(type,fn)
+// }
+// var a = document.getElementById('link1')
+// bindEvent(a,'click',function () {
+//   e.preventDefault()//这个存在就是阻止默认的行为，
+//   console.log('bindEvent click')
+// })
 /*e.preventDefault()//这个存在就是阻止默认的行为，
 因为是 a 标签，它存在一个点击以后跳转的现象，所以这里
 加入一个 e.preventDefault() 阻止他跳走，让他先
@@ -478,10 +478,22 @@ bindEvent(a,'click',function () {
 
 */
 
+var xhr = new XMLHttpRequest()
+xhr.open('GET','url',false)//false 异步执行
+xhr.onreadystatecode = function (){//状态变化是函数触发
+  if (xhr.readyState == 4) {//xhr.readyState 说明已经完成了
+    if (xhr.staus == 200) {//终端返回码就是OK
+      alert(xhr.responseText)
+    }
+  }
+}
+xhr.send(null)
+
+/*IE 兼容性的问题 IE 的低版本使用的是 ActiveObject
+和 W3C 标准不一样
 
 
-
-
+*/
 
 
 
