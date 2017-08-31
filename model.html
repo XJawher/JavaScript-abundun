@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>试验场</title>
+</head>
+<body>
+  <div id="div1">
+    <p id="p1">激活</p>
+    <p id="p2">取消</p>
+    <p id="p3">取消</p>
+    <p id="p4">取消</p>
+    <a href="">a1</a>
+    <a href="">a2</a>
+    <a href="">a3</a>
+    <a href="">a4</a>
+  </div>
+  <div id="div2">
+    <p id="p5">激活</p>
+    <p id="p6">取消</p>
+    <p id="p7">激活</p>
+    <p id="p8">取消</p>
+    <a href="">a5</a>
+    <a href="">a6</a>
+    <a href="">a7</a>
+    <a href="">a48</a>
+  </div>
+
+
+  <script>
+    var div1 = document.getElementById('div1')
+    var p1 = document.getElementById('p1');
+    var body = document.body;
+    function bindEvent(elem,type,fn) {
+      elem.addEventListener(type,fn)
+    }
+    div1.addEventListener('click',function(e) {
+      var target = e.target
+      /*var target = e.target 可以告诉你这个事件是从哪里触发的*/
+      if (target.nodeName === 'A') {
+        alert(target.innerHTML)
+      }
+    })
+    bindEvent(p1,'click',function(e){
+      e.preventDefault();
+      alert('激活')
+    })
+    bindEvent(body,'click',function(e){
+      alert('取消')
+    })
+    function bindEvent1(elem,type,selector,fn) {
+      if (fn === null ) {
+        fn = selector
+        selector = null 
+      }
+      elem.addEventListener(type,function (e){
+        var target
+        if (selector) {
+          target = e.target
+          if (target.matches(selector)) {
+            fn.call(target,e)
+          }
+        } else{
+          fn(e)
+        }
+      })
+    }
+    //使用代理,这里的使用代理的意思就是 a 标签本身是没有点击事件的，我们把点击事件存放到 a 的父级作用域下，也就是 div2 中。
+    var div2 = document.getElementById('div2')
+    bindEvent1(div2,'click','a',function(e) {
+      alert(this.innerHTML)
+    })
+    // 不使用代理
+    var a = document.getElementById('a1')
+    bindEvent1(div2,'click',function(e) {
+      alert(a.innerHTML)
+    })
+  </script>
+</body>
+</html>
