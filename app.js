@@ -325,26 +325,108 @@ if语句
 //   })(i)  
 // }
 
-function firstLoad() {
-  var _list = []
-  return function (id){
-    if (_list.indexOf(id) >= 0) {
-      return false
-    } else {
-      _list.push(id)
-      return true
-    }
+// function firstLoad() {
+//   var _list = []
+//   return function (id){
+//     if (_list.indexOf(id) >= 0) {
+//       return false
+//     } else {
+//       _list.push(id)
+//       return true
+//     }
+//   }
+// }
+
+// var _firstLoad = firstLoad()
+// _firstLoad(10)
+// _firstLoad(20)
+// _firstLoad(10)
+
+/*## 异步和单线程*/
+// console.log(100)
+// setTimeOut( function() {
+//   console.log(200)
+// })
+// console.log(300)
+
+// console.log('start')
+// $.get('./data.json',function (data) {
+//   console.log(data)
+// })
+// console.log('end')
+
+/*日期 */
+// console.log(Date.now())//
+// var dt = new Date()
+// console.log(dt.getTime())
+// console.log(dt.getFullYear())
+// console.log(dt.getMonth())
+// console.log(dt.getDate())
+// console.log(dt.getHours())
+// console.log(dt.getMinutes())
+// console.log(dt.getSeconds())
+
+/*Math*/
+/*随机数*/
+
+//var M = Math.random()/*返回的是一个 0-1 之间的数*/
+//console.log(M)/*很大的一个用途就是清除缓存用*/
+/*数组 api*/
+/*forEach 遍历所有的元素*/
+var arr1 = [1,2,3]
+arr1.forEach(function (item,index) {
+  console.log('forEach')
+  console.log(index,item)
+})
+
+/*every 判断所有元素是否都符合条件*/
+var arr2 = [1,2,6]
+
+ var result = arr2.every(function (item,index) {
+  if (item < 4) {
+    return true
   }
-}
+  console.log('every')
+  console.log(index,item)
+})
+ console.log(result)
+/*some 判断至少有一个元素符合要求*/
+var arr3 = [1,2,6]
 
-var _firstLoad = firstLoad()
-_firstLoad(10)
-_firstLoad(20)
-_firstLoad(10)
+ var result = arr3.some(function (item,index) {
+  if (item < 4) {
+    return true
+  }
+  console.log('some')
+  console.log(index,item)
+})
+ console.log(result)
+/*sort 排序*/
+var arr4 = [1,5,1.5,1.1,61,5,54,71,9] 
+var arr5 = arr4.sort(function (a,b) {
+  //从大到小
+  return a - b 
+  //从小到大
+})
+console.log(arr5)
 
 
 
 
+/*map 对元素重新组装，生成新数组*/
+var arr6 = arr5.map(function (item,index) {
+  return '' + item + ''
+})
+console.log(arr6)
+/*filter 过滤符合条件的元素*/
+var arr7 = arr5.filter(function(item,index) {
+  if (item >= 2) {
+    return true
+  } 
+})
+console.log(arr7)
+
+/*对象 api for in */
 
 
 
