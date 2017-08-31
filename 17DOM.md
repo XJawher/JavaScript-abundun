@@ -1,5 +1,5 @@
 ## DOM
-DOM 就是 Document Operation Model  文档操作模型  
+DOM 就是 Document Object Model  文档对象模型  
 DOM 的本质是一个节点树，结构化的，能让 JS 可识别具有可操作性的文档模型。  
 DOM 节点操作就是以 document.getElementById 这种为类型的浏览器的 api 操作   
 DOM 结构操作有：    
