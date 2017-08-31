@@ -203,7 +203,55 @@ div1.appendChild(p2)
 
 
 获取父子元素
+var div1 = document.getElementById('div1') 
+var parent = div1.parentElement
+
+var child = div1.childNodes
+
+
+
 删除节点
+div1.removeChild(child[0])
+
+
+BOM 操作
+
+browser object model
+如何检测浏览器的类型   
+navigator
+var ua = navigator.userAgent  //这是一个很长的字符串，包括很多信息，比如 iPhone Android chrome 等，用来判断用户的手机是什么操作系统之类的
+var isChrome = ua.indexOf('chorme')
+
+location
+location.href  //整个的 URL
+location.protocol // 'http' or 'https' 协议
+location.host // 域名
+location.pathname // 路径 '/learn/133'
+location.search //？后面的查询字符串，是一些参数
+location.hash // # 号后面的一些字符，就是 hash
+
+
+history
+history.back()  返回
+history.forward()  前移
+拆解 URL 的各部分 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

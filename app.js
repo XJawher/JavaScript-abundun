@@ -430,7 +430,7 @@ if语句
 
 /*写一个能遍历对象和数组的 forEach 函数，这里的思路是先做判断，然后循环*/
 
-function forEach (obj,fn){
+/*function forEach (obj,fn){
   var key 
   if (obj instanceof Array) {
     obj.forEach(function(index,item) {
@@ -454,5 +454,5 @@ forEach(obj,function (key,value){
   console.log('key,value')
   console.log(key,value)
 })
-
+*/
 
