@@ -48,6 +48,11 @@
     bindEvent(body,'click',function(e){
       alert('取消')
     })
+/*
+selector 就是如果我们用代理，那就把选择器放在这里，如果不用代理，那么就做一个判断，让这里的 fn 和 selector 交换一下位置。让 selector = null
+
+ */
+
     function bindEvent1(elem,type,selector,fn) {
       if (fn === null ) {
         fn = selector
@@ -65,7 +70,7 @@
         }
       })
     }
-    //使用代理,这里的使用代理的意思就是 a 标签本身是没有点击事件的，我们把点击事件存放到 a 的父级作用域下，也就是 div2 中。
+    //使用代理,这里的使用代理的意思就是 a 标签本身是没有点击事件的，我们把点击事件存放到 a 的父级作用域下，也就是 div2 中。代理的好处就是代码简洁，不用写太多的绑定事件，减少浏览器的内存的占用，因为写一次事件浏览器就要记一次，写一千次呢？？所以可以有效的降低内存的占用
     var div2 = document.getElementById('div2')
     bindEvent1(div2,'click','a',function(e) {
       alert(this.innerHTML)
