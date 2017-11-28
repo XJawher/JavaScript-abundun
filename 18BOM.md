@@ -2,7 +2,8 @@
 检测浏览器的类型      
 navigator    
 
-	var ua = navigator.userAgent  //这是一个很长的字符串，包括很多信息，比如 iPhone Android chrome 等，用来判断用户的手机是什么操作系统之类的    
+	var ua = navigator.userAgent  //这是一个很长的字符串，包括很多信息，
+	比如 iPhone Android chrome 等，用来判断用户的手机是什么操作系统之类的    
 	var isChrome = ua.indexOf('chorme')   
 location
 
