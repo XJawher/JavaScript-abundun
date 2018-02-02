@@ -12,4 +12,5 @@
 		}
 	  }
 	}
-	xhr.send(null)
+	xhr.send(null)    
+**xhr.readyState == 4** 这是一个状态码
